@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Maven Project Object Model (POM)
+    This file defines the project's metadata, dependencies,
+    build configuration, and plugins.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- POM model version used by Maven -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        Unique identifier of the organization or developer.
+        Usually follows the reverse domain convention.
+        Example: com.company, io.github.username
+    -->
+    <groupId>com.marcelosmbr</groupId>
+
+    <!--
+        Name of the project/artifact that will be generated.
+        Example output:
+        Api_Hibernate-1.0-SNAPSHOT.jar
+    -->
+    <artifactId>Api_Hibernate</artifactId>
+
+    <!--
+        Project version.
+        SNAPSHOT means the project is still under development.
+    -->
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+        Packaging type.
+        jar = Java application/library
+        war = Web application
+        pom = Parent or aggregator project
+    -->
+    <packaging>jar</packaging>
+
+    <properties>
+
+        <!-- Character encoding used during compilation -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Java version used to compile the project -->
+        <maven.compiler.release>25</maven.compiler.release>
+
+        <!-- Main class executed when running the application -->
+        <exec.mainClass>
+            com.marcelosmbr.api_hibernate.Api_Hibernate
+        </exec.mainClass>
+
+    </properties>
+
+    <!--
+        External libraries required by the project.
+        Maven automatically downloads them from repositories.
+    -->
+    <dependencies>
+
+        <!--
+            Hibernate ORM Framework.
+            Responsible for mapping Java objects to database tables
+            and handling database operations.
+        -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>7.0.7.Final</version>
+        </dependency>
+
+        <!--
+            MySQL JDBC Driver.
+            Allows Java applications to connect to a MySQL database.
+        -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.4.0</version>
+        </dependency>
+
+        <!--
+            Jakarta Persistence API (JPA).
+            Defines the standard annotations and interfaces used
+            by ORM frameworks such as Hibernate.
+            
+            Examples:
+            @Entity
+            @Table
+            @Id
+            @GeneratedValue
+        -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        
+        <!--
+           Javalin is a very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2 and async requests     
+         -->
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>6.7.0</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

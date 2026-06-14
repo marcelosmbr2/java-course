@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Jakarta Persistence (JPA) configuration file.
+
+    This file defines:
+    - The persistence unit
+    - Database connection settings
+    - Hibernate behavior
+    - Entity management configuration
+
+    Hibernate is used as the JPA provider.
+-->
+
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                                 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <!--
+        Persistence Unit
+
+        A persistence unit is a named configuration that defines
+        how JPA connects to and interacts with a database.
+
+        This name will be used when creating the EntityManagerFactory:
+
+        Persistence.createEntityManagerFactory("HibernatePU");
+    -->
+    <persistence-unit name="HibernatePU">
+
+        <properties>
+
+            <!--
+                JDBC Driver
+
+                Specifies which database driver Hibernate should use.
+
+                MySQL:
+                com.mysql.cj.jdbc.Driver
+
+                PostgreSQL:
+                org.postgresql.Driver
+            -->
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+
+            <!--
+                Database Connection URL
+
+                Format:
+                jdbc:mysql://host:port/database_name
+
+                Example:
+                jdbc:mysql://localhost:3306/api_hibernate
+            -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/api_hibernate"/>
+
+            <!--
+                Database username
+            -->
+            <property name="jakarta.persistence.jdbc.user"
+                      value="root"/>
+
+            <!--
+                Database password
+            -->
+            <property name="jakarta.persistence.jdbc.password"
+                      value="password"/>
+
+            <!--
+                Hibernate SQL Dialect
+
+                Tells Hibernate how to generate SQL
+                optimized for a specific database.
+
+                Examples:
+                - MySQLDialect
+                - PostgreSQLDialect
+                - OracleDialect
+            -->
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQLDialect"/>
+
+            <!--
+                Displays generated SQL statements
+                in the application console.
+            -->
+            <property name="hibernate.show_sql"
+                      value="true"/>
+
+            <!--
+                Formats SQL statements
+                to improve readability.
+            -->
+            <property name="hibernate.format_sql"
+                      value="true"/>
+
+            <!--
+                Database Schema Management
+
+                Possible values:
+
+                create      -> Drops and recreates tables every startup.
+                create-drop -> Creates tables and removes them on shutdown.
+                update      -> Updates schema without deleting data.
+                validate    -> Validates schema only.
+                none        -> No automatic schema management.
+
+                Common during development:
+                update
+
+                Common in production:
+                validate
+            -->
+            <property name="hibernate.hbm2ddl.auto"
+                      value="update"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
