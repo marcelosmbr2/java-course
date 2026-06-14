@@ -1,19 +1,24 @@
-/******************************************************************************
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+package com.marcelosmbr.java_basic;
 
-                            Online Java Compiler.
-                Code, Compile, Run and Debug java program online.
-Write your code in this editor and press "Run" button to execute it.
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
-*******************************************************************************/
+/**
+ *
+ * @author marce
+ */
+public class Java_Basic {
 
-public class Main
-{
-	public static void main(String[] args) {
-	
-	    // =============================================
+    public static void main(String[] args) {
+
+        // =============================================
         // Variables and data types
         // =============================================
-        
         // Primitives
         int age = 25;
         double salary = 4500.75;
@@ -34,7 +39,6 @@ public class Main
         // =============================================
         // Output
         // =============================================
-        
         System.out.println("Hello, " + name + "!");
         System.out.print("No line break here ");
         System.out.printf("Salary: $%.2f%n", salary);
@@ -42,16 +46,14 @@ public class Main
         // =============================================
         // Input 
         // =============================================
-        
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your name: ");
-        String user_name = sc.nextLine();
+        String user_name = scanner.nextLine();
         System.out.println("Hello, " + user_name);
 
         // =============================================
         // Conditions
         // =============================================
-        
         int grade = 75;
 
         // If-else-if
@@ -93,7 +95,6 @@ public class Main
         // =============================================
         // Loops
         // =============================================
-        
         // For
         for (int i = 1; i <= 5; i++) {
             System.out.println("For: " + i);
@@ -116,7 +117,6 @@ public class Main
         // =============================================
         // Data Structure
         // =============================================
-        
         // Array Vector (fixed size)
         int[] numbers = {10, 20, 30, 40, 50};
         System.out.println("First: " + numbers[0]);
@@ -154,7 +154,6 @@ public class Main
         // =============================================
         // Libraries
         // =============================================
-        
         // Math
         System.out.println("Square root of 16: " + Math.sqrt(16));
 
@@ -171,7 +170,6 @@ public class Main
         // =============================================
         // Error Handling
         // =============================================
-        
         try {
             int division = 10 / 0; // ArithmeticException
         } catch (ArithmeticException e) {
@@ -183,30 +181,29 @@ public class Main
         // =============================================
         // Lambdas (anonymous functions)
         // =============================================
-        
         // No parameters
         Runnable lambda1 = () -> System.out.println("Hello!");
         lambda1.run();
-        
+
         // With 1 parameter
-        Consumer<String> lambda2 = name -> System.out.println("Hello, " + name);
+        Consumer<String> lambda2 = personName -> System.out.println("Hello, " + personName);
         lambda2.accept("Marce");
-        
+
         // With 2 parameters
         BiFunction<Integer, Integer, Integer> lambda3 = (a, b) -> a + b;
         System.out.println(lambda3.apply(10, 20));
-        
+
         // With code block
-        Function<Integer, String> lambda4 = grade -> {
-            if (grade >= 90) {
+        Function<Integer, String> lambda4 = studentGrade -> {
+            if (studentGrade >= 90) {
                 return "A";
-            } else if (grade >= 70) {
+            } else if (studentGrade >= 70) {
                 return "B";
             } else {
                 return "F";
             }
         };
+
         System.out.println(lambda4.apply(85));
-        
-	}
+    }
 }
